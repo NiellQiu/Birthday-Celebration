@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Celebration</title>
+    <style>
+        body {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .start-btn {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: pink;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .start-btn:hover {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="start-btn" onclick="startCelebration()">Start Celebration</button>
+
+    <script>
+        function startCelebration() {
+            // Open YouTube at a specific timestamp (e.g., at 00:43)
+            window.open("https://www.youtube.com/watch?v=_lQxaYmt0DQ&t=43s", "_blank");
+
+            // Pause the current page's interaction by blocking interaction
+            // Saving the audio state for when the user opens index.html
+            sessionStorage.setItem("musicPlaying", "true");
+            sessionStorage.setItem("musicTime", "0"); // Start from the beginning of the music
+
+            // Navigate to index.html (automatically pausing interaction until the user opens it)
+            setTimeout(function() {
+                window.location.href = "index.html";
+            }, 200); // Add slight delay to ensure the YouTube opens
+        }
+    </script>
+
+</body>
+</html>
